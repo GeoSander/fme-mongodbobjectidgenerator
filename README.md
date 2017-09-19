@@ -20,3 +20,8 @@ Although FME's MongoDB writer will generate MongoDB ID's automatically, there mi
 - Released under [GNU General Public License v3.0](https://github.com/SanderSchaminee/fme-mongodbobjectidgenerator/blob/master/LICENSE).  
 - If you notice a bug or desire a new feature, please contact me. Or make a pull request!  
 - [This FME workspace](https://github.com/SanderSchaminee/fme-mongodbobjectidgenerator/blob/master/MongoDBObjectIDGeneratorTest.fmw) is used for testing and provides some examples.
+
+## Usage
+**Operation Mode**  
+When set to _Generate_, the transformer will create new MongoDB ObjectID's and store them in the _mongodb_id_ attribute. If the attribute exists, it will be overwritten (!).  
+When set to _Validate_, the transformer assumes that the _mongodb_id_ attribute exists and tries to validate it (see Overview). No ObjectID's will be created or overwritten in this mode. If a feature has an invalid ObjectID, it will be output through the _Rejected_ port. The failure reason will be stored in the attribute _mongodb_id_error_.
